@@ -16,7 +16,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
+
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -24,15 +24,16 @@ import javafx.stage.Stage;
  *
  * @author Usuario
  */
-public class MenuInicial extends Stage{
+public class MenuBebidas{
     
     private BorderPane mainPanel;
     private ScrollPane panelScroll;
     private VBox centerPanel;
     private Scene scene;
     private ImageView logo;
+    static Stage stage;
     
-    public MenuInicial(){
+    public MenuBebidas(){
         
         this.mainPanel = new BorderPane();
         this.mainPanel.setPadding(new Insets(10));
@@ -42,8 +43,10 @@ public class MenuInicial extends Stage{
         
         this.mainPanel.setId("borderpane");
         
-        this.setScene(this.scene);
-        this.setTitle("McDolan's - Menu Inicial");
+        this.stage = new Stage();
+        
+        this.stage.setScene(this.scene);
+        this.stage.setTitle("McDolan's - Menu Inicial");
         
         
         this.logo = new ImageView("/imagen/logo.png");
@@ -85,7 +88,7 @@ public class MenuInicial extends Stage{
     }
     
     public void mostrarMenuInicial(){
-        this.show();
+        this.stage.show();
     }
     
     private void crearBatidos(){

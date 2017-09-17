@@ -69,7 +69,7 @@ public class PanelBebida extends GridPane{
 
             @Override
             public void handle(ActionEvent event) {
-                
+               new MenuExtras();
             }
         });
     

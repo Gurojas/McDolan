@@ -6,7 +6,7 @@
 package mcdolan;
 
 
-import GUI.MenuInicial;
+import GUI.MenuBebidas;
 
 import javafx.application.Application;
 
@@ -22,7 +22,7 @@ public class McDolan extends Application {
     public void start(Stage primaryStage) {
         
         
-        MenuInicial menuInicial = new MenuInicial();
+        MenuBebidas menuInicial = new MenuBebidas();
         menuInicial.mostrarMenuInicial();
         
     }

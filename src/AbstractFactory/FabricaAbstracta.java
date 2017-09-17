@@ -19,9 +19,9 @@ public interface FabricaAbstracta {
     
     public Bebida crearBatido(String sabor);
     
-    public Extra crearSirope();
+    public Extra crearSirope(String sabor);
     
     public Extra crearCrema();
     
-    public Extra crearTrozo();
+    public Extra crearTrozo(String tipo);
 }

@@ -44,7 +44,7 @@ public class FabricaBebida implements FabricaAbstracta{
     }
 
     @Override
-    public Extra crearSirope() {
+    public Extra crearSirope(String sabor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -54,9 +54,15 @@ public class FabricaBebida implements FabricaAbstracta{
     }
 
     @Override
-    public Extra crearTrozo() {
+    public Extra crearTrozo(String tipo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
+   
+    
+
+    
 
 
     
