@@ -15,7 +15,8 @@ and open the template in the editor.
 }
 
 #botonesBebidas{
-    -fx-background-color: #000099;
+    //-fx-background-color: #000099;
+    -fx-background-color: #ff3333;
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
@@ -27,5 +28,5 @@ and open the template in the editor.
 }
 
 #botonesBebidas:hover{
-    -fx-background-color: #0000ff;
+    -fx-background-color: #ff6666;
 }

@@ -6,9 +6,11 @@
 package AbstractFactory;
 
 import Productos.Bebida.Bebida;
+import Productos.Bebida.Cafe.Cafe;
+import Productos.Extra.Crema;
 import Productos.Extra.CremaBatida;
-import Productos.Extra.Extra;
 import Productos.Extra.Sirope;
+import Productos.Extra.Trozo;
 import Productos.Extra.TrozoAlmendra;
 import Productos.Extra.TrozoAvellana;
 import Productos.Extra.TrozoChocolate;
@@ -21,7 +23,7 @@ import Productos.Extra.TrozoGalleta;
 public class FabricaExtra implements FabricaAbstracta{
 
     @Override
-    public Bebida crearCafe(String bebida) {
+    public Cafe crearCafe(String bebida) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -31,17 +33,17 @@ public class FabricaExtra implements FabricaAbstracta{
     }
 
     @Override
-    public Extra crearSirope(String sabor) {
+    public Sirope crearSirope(String sabor) {
         return new Sirope(sabor);
     }
 
     @Override
-    public Extra crearCrema() {
+    public Crema crearCrema() {
         return new CremaBatida();
     }
 
     @Override
-    public Extra crearTrozo(String tipo) {
+    public Trozo crearTrozo(String tipo) {
         switch(tipo){
             case "Chocolate":
                 return new TrozoChocolate();

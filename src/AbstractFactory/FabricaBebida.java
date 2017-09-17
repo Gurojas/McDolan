@@ -12,7 +12,9 @@ import Productos.Bebida.Cafe.Espresso;
 import Productos.Bebida.Cafe.Latte;
 import Productos.Bebida.Cafe.Machiatto;
 import Productos.Bebida.Cafe.Mocha;
-import Productos.Extra.Extra;
+import Productos.Extra.Crema;
+import Productos.Extra.Sirope;
+import Productos.Extra.Trozo;
 
 /**
  *
@@ -44,17 +46,17 @@ public class FabricaBebida implements FabricaAbstracta{
     }
 
     @Override
-    public Extra crearSirope(String sabor) {
+    public Sirope crearSirope(String sabor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Extra crearCrema() {
+    public Crema crearCrema() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Extra crearTrozo(String tipo) {
+    public Trozo crearTrozo(String tipo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

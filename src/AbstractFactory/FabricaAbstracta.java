@@ -6,7 +6,10 @@
 package AbstractFactory;
 
 import Productos.Bebida.Bebida;
-import Productos.Extra.Extra;
+import Productos.Bebida.Cafe.Cafe;
+import Productos.Extra.Crema;
+import Productos.Extra.Sirope;
+import Productos.Extra.Trozo;
 
 
 /**
@@ -15,13 +18,13 @@ import Productos.Extra.Extra;
  */
 public interface FabricaAbstracta {
     
-    public Bebida crearCafe(String bebida);
+    public Cafe crearCafe(String bebida);
     
     public Bebida crearBatido(String sabor);
     
-    public Extra crearSirope(String sabor);
+    public Sirope crearSirope(String sabor);
     
-    public Extra crearCrema();
+    public Crema crearCrema();
     
-    public Extra crearTrozo(String tipo);
+    public Trozo crearTrozo(String tipo);
 }
