@@ -5,10 +5,14 @@
  */
 package GUI;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -53,6 +57,14 @@ public class PanelVenta extends GridPane{
         this.add(this.botonPagar,0,3);
         GridPane.setHalignment(this.botonPagar, HPos.RIGHT);
         
+        this.botonPagar.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+               PopUp popUp = new PopUp(PanelVenta.acumulador);
+               popUp.mostrar();
+            }
+        });
         
     }
     

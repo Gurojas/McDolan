@@ -110,9 +110,7 @@ public class MenuExtras {
         this.panelVenta = new PanelVenta();
         this.mainPanel.setCenter(this.panelVenta);
         
-        
-        
-        
+
         
     }
     
