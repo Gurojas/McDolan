@@ -19,23 +19,22 @@ import Productos.Sabor.Vanilla;
 public class Batido implements Bebida{
     
     private Sabor sabor;
+    protected int costo;
     
     public Batido(String sabor){
         switch(sabor){
             case "Chocolate":
                 this.sabor = new Chocolate();
                 break;
-            case "Vanilla":
+            case "Vainilla":
                 this.sabor = new Vanilla();
                 break;
             case "Fresa":
                 this.sabor = new Fresa();
                 break;
         }
-    }
-    
-    public Sabor getSabor(){
-        return this.sabor;
+        this.costo = 2500;
+        
     }
 
     @Override
@@ -48,7 +47,12 @@ public class Batido implements Bebida{
 
     @Override
     public int costo() {
-        return 2500;
+        return this.costo;
+    }
+
+    @Override
+    public String nombre() {
+        return "Batido sabor "+this.sabor.sabor();
     }
     
     

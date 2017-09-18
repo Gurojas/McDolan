@@ -11,13 +11,22 @@ package Productos.Bebida.Cafe;
  */
 public class Espresso extends Cafe{
     
+    
+    
     public Espresso(){
         super();
+        this.precio = 1800;
+        this.nombre = "Cafe Espresso";
+    }
+    
+    @Override
+    public String nombre(){
+        return this.nombre;
     }
     
     @Override
     public int costo(){
-        return 1800;
+        return this.precio;
     }
     
     @Override

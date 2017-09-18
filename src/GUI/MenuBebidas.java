@@ -29,11 +29,15 @@ public class MenuBebidas{
     private BorderPane mainPanel;
     private ScrollPane panelScroll;
     private VBox centerPanel;
-    private Scene scene;
+    public static Scene scene;
     private ImageView logo;
-    static Stage stage;
+    public static Stage stage;
     
     public MenuBebidas(){
+        
+        stage = new Stage();
+        stage.getIcons().add(new ImageView("/imagen/logo.png").getImage());
+        stage.setResizable(false);
         
         this.mainPanel = new BorderPane();
         this.mainPanel.setPadding(new Insets(10));
@@ -43,7 +47,6 @@ public class MenuBebidas{
         
         this.mainPanel.setId("borderpane");
         
-        this.stage = new Stage();
         
         this.stage.setScene(this.scene);
         this.stage.setTitle("McDolan's - Menu Inicial");
@@ -81,10 +84,11 @@ public class MenuBebidas{
         this.panelScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         mainPanel.setCenter(this.panelScroll);
 
-        
-        
-        
-        
+    }
+    
+    public static void cambiarEscena(){
+        MenuBebidas.stage.setScene(scene);
+        stage.setTitle("McDolan's - Menu Inicial");
     }
     
     public void mostrarMenuInicial(){
@@ -95,18 +99,18 @@ public class MenuBebidas{
         FabricaBebida fabricaBebida = new FabricaBebida();
         Batido batidoVainilla = fabricaBebida.crearBatido("Vainilla");
         String url = "/imagen/batidoVainilla.png";
-        PanelBebida panel = new PanelBebida("Batido Sabor Vainilla", batidoVainilla.descripcion(),batidoVainilla.costo() , url);
+        PanelBebida panel = new PanelBebida(batidoVainilla.nombre(), batidoVainilla.descripcion(),batidoVainilla.costo() , url);
         
         this.centerPanel.getChildren().add(panel);
         
         Batido batidoChocolate = fabricaBebida.crearBatido("Chocolate");
         url = "/imagen/batidoChocolate.png";
-        panel = new PanelBebida("Batido Sabor Chocolate", batidoChocolate.descripcion(),batidoChocolate.costo() ,url);
+        panel = new PanelBebida(batidoChocolate.nombre(), batidoChocolate.descripcion(),batidoChocolate.costo() ,url);
         
         this.centerPanel.getChildren().add(panel);
         Batido batidoFresa = fabricaBebida.crearBatido("Fresa");
         url = "/imagen/batidoFresa.png";
-        panel = new PanelBebida("Batido Sabor Fresa", batidoFresa.descripcion(),batidoFresa.costo() , url);
+        panel = new PanelBebida(batidoFresa.nombre(), batidoFresa.descripcion(),batidoFresa.costo() , url);
         
         this.centerPanel.getChildren().add(panel);
         
@@ -116,34 +120,38 @@ public class MenuBebidas{
         FabricaBebida fabricaBebida = new FabricaBebida();
         Cafe latte = fabricaBebida.crearCafe("Latte");
         String url = "/imagen/latte.png";
-        PanelBebida panel = new PanelBebida("Cafe Latte", latte.descripcion(),latte.costo(),url);
+        PanelBebida panel = new PanelBebida(latte.nombre(), latte.descripcion(),latte.costo(),url);
         
         this.centerPanel.getChildren().add(panel);
         
         url = "/imagen/espresso.png";
         Cafe espresso = fabricaBebida.crearCafe("Espresso");
-        panel = new PanelBebida("Cafe Espresso", espresso.descripcion(),espresso.costo(),url);
+        panel = new PanelBebida(espresso.nombre(), espresso.descripcion(),espresso.costo(),url);
         
         this.centerPanel.getChildren().add(panel);
         
         url = "/imagen/mocha.png";
         Cafe mocha = fabricaBebida.crearCafe("Mocha");
-        panel = new PanelBebida("Cafe Mocha", mocha.descripcion(),mocha.costo(),url);
+        panel = new PanelBebida(mocha.nombre(), mocha.descripcion(),mocha.costo(),url);
         
         this.centerPanel.getChildren().add(panel);
         
         url = "/imagen/capuccino.png";
         Cafe capuccino = fabricaBebida.crearCafe("Capuccino");
-        panel = new PanelBebida("Cafe Capuccino", capuccino.descripcion(),capuccino.costo(),url);
+        panel = new PanelBebida(capuccino.nombre(), capuccino.descripcion(),capuccino.costo(),url);
         
         this.centerPanel.getChildren().add(panel);
         
         url = "/imagen/machiatto.png";
         Cafe machiatto = fabricaBebida.crearCafe("Machiatto");
-        panel = new PanelBebida("Cafe machiatto", machiatto.descripcion(),machiatto.costo(),url);
+        panel = new PanelBebida(machiatto.nombre(), machiatto.descripcion(),machiatto.costo(),url);
         
         this.centerPanel.getChildren().add(panel);
         
+    }
+    
+    public Scene getScene(){
+        return this.scene;
     }
     
 }

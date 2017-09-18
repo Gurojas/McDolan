@@ -15,4 +15,6 @@ public interface Bebida {
     
     public int costo();
     
+    public String nombre();
+    
 }

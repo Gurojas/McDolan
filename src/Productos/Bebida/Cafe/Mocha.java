@@ -13,11 +13,18 @@ public class Mocha extends Cafe{
     
     public Mocha(){
         super();
+        this.precio = 2200;
+        this.nombre = "Cafe Mocha";
+    }
+    
+    @Override
+    public String nombre(){
+        return this.nombre;
     }
     
     @Override
     public int costo(){
-        return 2200;
+        return this.precio;
     }
     
     @Override

@@ -36,7 +36,8 @@ public class MenuExtras {
     private VBox centerPanel;
     private HBox panelBottom;
     private Button botonAtras;
-    
+    private PanelVenta panelVenta;
+
     public MenuExtras(){
         
         this.mainPanel = new BorderPane();
@@ -45,13 +46,13 @@ public class MenuExtras {
         this.scene = new Scene(mainPanel,800,600);
         this.scene.getStylesheets().add("estilos/estilos.css");
         
-        MenuBebidas.stage.setScene(scene);
-        MenuBebidas.stage.setTitle("McDolan - Menu Extras");
-        
         this.mainPanel.setId("borderpane");
         
+        
+        
         this.panelScroll = new ScrollPane();
-        this.mainPanel.setCenter(this.panelScroll);
+        this.panelScroll.setPrefWidth(300);
+        this.mainPanel.setLeft(this.panelScroll);
         
         this.logo = new ImageView("/imagen/logo.png");
         this.logo.setFitHeight(100);
@@ -79,34 +80,49 @@ public class MenuExtras {
         this.centerPanel.getChildren().add(textoTrozos);
         this.crearTrozos();
         
-        
-        
-
         this.panelScroll.setContent(this.centerPanel);
         this.panelScroll.setStyle("-fx-background-color:transparent;");
         
         this.panelScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-        mainPanel.setCenter(this.panelScroll);
+        //mainPanel.setCenter(this.panelScroll);
         
         
         this.panelBottom = new HBox();
         this.panelBottom.setPadding(new Insets(10));
         
         this.botonAtras = new Button("Atras");
+        this.botonAtras.setId("botones");
+        
         this.panelBottom.getChildren().add(this.botonAtras);
         
         this.botonAtras.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
-                MenuBebidas menuBebidas = new MenuBebidas();
+                MenuBebidas.cambiarEscena();
+                PanelVenta.acumulador = 0;
                 
             }
         });
         
         this.mainPanel.setBottom(this.panelBottom);
         
+        this.panelVenta = new PanelVenta();
+        this.mainPanel.setCenter(this.panelVenta);
         
+        
+        
+        
+        
+    }
+    
+    public void cambiarEscena(){
+        MenuBebidas.stage.setScene(scene);
+        MenuBebidas.stage.setTitle("McDolan's - Menu Extra");
+    }
+    
+    public void añadirLista(String producto){
+        this.panelVenta.lista.getItems().add(producto);
     }
     
     private void crearCremas(){
@@ -164,5 +180,7 @@ public class MenuExtras {
         this.centerPanel.getChildren().add(panelExtra);
         
     }
+    
+ 
     
 }

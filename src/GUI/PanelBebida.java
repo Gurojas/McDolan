@@ -29,6 +29,9 @@ public class PanelBebida extends GridPane{
     private Text textoDescripcion;
     private Text textoNombre;
     private Text textoPrecio;
+    
+    //private int precio;
+    //private String nombre;
    
     
     public PanelBebida(String nombre, String descripcion, int precio, String urlImage){
@@ -37,20 +40,21 @@ public class PanelBebida extends GridPane{
         this.setGridLinesVisible(false);
         this.setPrefWidth(750);
         
-       
         
         this.imagen = new ImageView(urlImage);
         this.imagen.setFitWidth(120);
         this.imagen.setFitHeight(100);
         
         this.botonSeleccionar = new Button("Seleccionar");
-        this.botonSeleccionar.setId("botonesBebidas");
+        this.botonSeleccionar.setId("botones");
         
         this.textoNombre = new Text(nombre);
+        this.textoNombre.setId("textoTitulo");
         
         this.textoDescripcion = new Text("Descripcion: "+descripcion);
         
         this.textoPrecio = new Text("Precio: $"+String.valueOf(precio));
+        this.textoPrecio.setId("textoPrecio");
         
         this.panelDescripcion = new TextFlow(this.textoDescripcion);
 
@@ -70,6 +74,10 @@ public class PanelBebida extends GridPane{
             @Override
             public void handle(ActionEvent event) {
                 MenuExtras menuExtras = new MenuExtras();
+                menuExtras.cambiarEscena();
+                
+                PanelVenta.lista.getItems().add(nombre+"     "+precio);
+                PanelVenta.textoTotal.setText("Total a pagar: $"+String.valueOf(PanelVenta.acumulador = PanelVenta.acumulador + precio));
             }
         });
     

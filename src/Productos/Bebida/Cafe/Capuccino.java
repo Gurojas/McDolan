@@ -13,11 +13,18 @@ public class Capuccino extends Cafe{
     
     public Capuccino(){
         super();
+        this.precio = 1600;
+        this.nombre = "Cafe Capuccino";
+    }
+    
+    @Override
+    public String nombre(){
+        return this.nombre;
     }
     
     @Override
     public int costo(){
-        return 1600;
+        return this.precio;
     }
     
     @Override

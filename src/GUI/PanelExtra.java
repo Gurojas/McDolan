@@ -5,11 +5,12 @@
  */
 package GUI;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 /**
@@ -19,14 +20,14 @@ import javafx.scene.text.Text;
 public class PanelExtra extends GridPane{
     
     private ImageView imagen;
-    private CheckBox selector;
+    public CheckBox selector;
     private Text textoNombre;
     private Text textoPrecio;
     
     public PanelExtra(String nombre, int precio, String imageUrl){
         
-        this.setGridLinesVisible(true);
-        this.setPrefWidth(500);
+        this.setGridLinesVisible(!true);
+        
         
         
         this.imagen = new ImageView(imageUrl);
@@ -34,10 +35,29 @@ public class PanelExtra extends GridPane{
         this.imagen.setFitHeight(100);
         
         this.selector = new CheckBox();
+      
+        this.selector.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                if (selector.isSelected()){
+                    PanelVenta.lista.getItems().add(nombre+"     "+precio);
+                    int acumulador = PanelVenta.acumulador;
+                    PanelVenta.textoTotal.setText("Total a pagar: $"+String.valueOf(PanelVenta.acumulador = acumulador + precio));
+                }
+                else{
+                    PanelVenta.lista.getItems().remove(nombre+"     "+precio);
+                    int acumulador = PanelVenta.acumulador;
+                    PanelVenta.textoTotal.setText("Total a pagar: $"+String.valueOf(PanelVenta.acumulador = acumulador - precio));
+                }
+            }
+        });
         
         this.textoNombre = new Text(nombre);
+        this.textoNombre.setId("textoTitulo");
         
         this.textoPrecio = new Text("Precio: $"+String.valueOf(precio));
+        this.textoPrecio.setId("textoPrecio");
         
         
         this.add(this.textoNombre,0,0);

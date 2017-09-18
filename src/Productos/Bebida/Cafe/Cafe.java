@@ -13,6 +13,9 @@ import Productos.Bebida.Bebida;
  */
 public class Cafe implements Bebida{
     
+    protected int precio;
+    protected String nombre;
+    
     public Cafe(){
     
     }
@@ -24,6 +27,11 @@ public class Cafe implements Bebida{
 
     @Override
     public int costo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String nombre() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
